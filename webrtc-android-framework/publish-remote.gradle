@@ -31,11 +31,11 @@ afterEvaluate {
                 version PUBLISH_VERSION
 
                 // Two artifacts, the `aar` (or `jar`) and the sources
-                if (project.plugins.findPlugin("com.android.library")) {
-                    from components.release
-                } else {
-                    from components.java
-                }
+                // if (project.plugins.findPlugin("com.android.library")) {
+                //     from components.release
+                // } else {
+                //     from components.java
+                // }
 
                 artifact androidSourcesJar
 //                artifacts javaDocJar
@@ -70,10 +70,10 @@ afterEvaluate {
         }
         repositories {
             maven {
-                credentials {
-                    username ossrhUsername
-                    password ossrhPassword
-                }
+                // credentials {
+                //     username ossrhUsername
+                //     password ossrhPassword
+                // }
 
                 def releasesRepoUrl = 'https://oss.sonatype.org/service/local/repositories/releases/content'
                 def snapshotsRepoUrl = 'https://oss.sonatype.org/content/repositories/snapshots'
@@ -83,11 +83,11 @@ afterEvaluate {
     }
 }
 
-signing {
-    useInMemoryPgpKeys(
-            rootProject.ext["signing.keyId"],
-            rootProject.ext["signing.key"],
-            rootProject.ext["signing.password"]
-    )
-    sign publishing.publications
-}
+// signing {
+//     useInMemoryPgpKeys(
+//             rootProject.ext["signing.keyId"],
+//             rootProject.ext["signing.key"],
+//             rootProject.ext["signing.password"]
+//     )
+//     sign publishing.publications
+// }

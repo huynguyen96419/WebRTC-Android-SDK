@@ -2125,6 +2125,11 @@ public class WebRTCClient implements IWebRTCClient, AntMediaSignallingEvents {
         });
     }
 
+    @Override
+    public void enableAudioTrack(String streamId, boolean enabled) {
+        wsHandler.enableAudioTrack(streamId, enabled);
+    }
+
     public void setVideoEnabled(final boolean enable) {
         config.videoCallEnabled = enable;
         executor.execute(() -> {

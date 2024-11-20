@@ -165,6 +165,13 @@ public interface IWebRTCClient {
     void setAudioEnabled(boolean enabled);
 
     /**
+     * mute/unmute audio
+     * @param streamId id for the main track
+     * @param enabled true for enable, false for disable
+     */
+    void enableAudioTrack(String streamId, boolean enabled);
+
+    /**
      * enable/disable played track stream from the server
      * @param streamId id for the main track
      * @param selecetedTrack id for the subtrack

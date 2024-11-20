@@ -418,6 +418,21 @@ public class WebSocketHandler implements WebSocket.WebSocketConnectionObserver {
         }
     }
 
+    public void enableAudioTrack(String streamId, boolean enabled) {
+        checkIfCalledOnValidThread();
+        JSONObject json = new JSONObject();
+        try {
+            json.put(WebSocketConstants.COMMAND, WebSocketConstants.TOGGLE_AUDIO_COMMAND);
+            json.put(WebSocketConstants.STREAM_ID, streamId);
+            json.put(WebSocketConstants.TRACK_ID, streamId);
+            json.put(WebSocketConstants.ENABLED, enabled);
+            sendTextMessage(json.toString());
+        }
+        catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void enableTrack(String streamId, String trackId, boolean enabled) {
         checkIfCalledOnValidThread();
         JSONObject json = new JSONObject();
